@@ -14,6 +14,6 @@
 }
 
 img {
-	filter: blur(100px) hue-rotate(270deg);
+	filter: blur(0px) hue-rotate(270deg);
 	width: 100vw;
 }
