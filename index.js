@@ -22,48 +22,50 @@ const createMixedName = name =>
 	`<p> ${name} </p>`
 	
 
-const image = (id) => {
-	fetch(`https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json`)
-		.then(response => response.json())
-		.then(heroes => {
-			const random = getRandomId(0, heroes.length)
-			const hero = heroes[random].images.lg
-			const images = document.getElementById("images")
-			images.innerHTML = createImage(hero)
-			const name = mixLetters(heroes[random].name)
-			const nameBlock = document.getElementById("nameLetters")
-			nameBlock.innerHTML = createMixedName(name)
-			
-			let btn = document.getElementById("answer-button")
-			btn.addEventListener("click", () => {
-			let answer = document.getElementById("answer-form").value
-			let correctAnswer = heroes[random].name.toLowerCase
-			// console.log(correctAnswer)
-			answer == correctAnswer ? alert('bravo') : alert('dommage')
-		})
+
+fetch(`https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json`)
+	.then(response => response.json())
+	.then(heroes => {
+		const random = getRandomId(0, heroes.length)
+		const hero = heroes[random].images.lg
+		const images = document.getElementById("images")
+		images.innerHTML = createImage(hero)
+
+		const name = mixLetters(heroes[random].name)
+		const nameBlock = document.getElementById("nameLetters")
+		nameBlock.innerHTML = createMixedName(name)
+		
+		let btn = document.getElementById("name-button")
+		btn.addEventListener("click", () => {
+		let answerName = document.getElementById("name-form").value
+		let correctAnswer = heroes[random].name
+		console.log(correctAnswer)
+		answerName == correctAnswer ? alert('bravo') : alert('dommage')
+	})
+})
 
 
-		})
-	}
+fetch('quiz.json')
+	.then(response => response.json())
+	.then(quiz => {
+		const randomQuestions = getRandomId(0, quiz.length)
+		const answer = quiz[randomQuestions].reponse
+		console.log(answer)
 
-image()
+		const question = quiz[randomQuestions].question
+		const questionContainer = document.getElementById("questions")
+		questionContainer.innerHTML = question
 
-
-
-
-
-
-
-
-// 	fetch(`https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json`)
-// 		.then(response => response.json())
-// 		.then(heroes => {
-// 			// const random = getRandomId(0, heroes.length)
-// 			const name = mixLetters(heroes[0].name)
-// 			const nameBlock = document.getElementById("nameLetters")
-// 			nameBlock.innerHTML = createMixedName(name)
-// 		})
-
+		let btn = document.getElementById("answer-button")
+		btn.addEventListener("click", () => {
+		let answer = document.getElementById("answer-form").value
+		let correctAnswer = quiz[randomQuestions].reponse
+		// console.log(correctAnswer)
+		answer == correctAnswer ? alert('bravo') : alert('dommage')
+	})
+})
 
 
-// mixLetters(word)
+
+
+
