@@ -48,21 +48,43 @@ fetch(`https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json`)
 fetch('quiz.json')
 	.then(response => response.json())
 	.then(quiz => {
+
+
+		// REPONSE A LA QUESTION
 		const randomQuestions = getRandomId(0, quiz.length)
 		const answer = quiz[randomQuestions].reponse
-		console.log(answer)
+		// console.log(answer)
 
-		const question = quiz[randomQuestions].question
-		const questionContainer = document.getElementById("questions")
-		questionContainer.innerHTML = question
 
-		let btn = document.getElementById("answer-button")
-		btn.addEventListener("click", () => {
-		let answer = document.getElementById("answer-form").value
-		let correctAnswer = quiz[randomQuestions].reponse
-		// console.log(correctAnswer)
-		answer == correctAnswer ? alert('bravo') : alert('dommage')
+		// RECUPERER UNE QUESTION RANDOM
+		
+
+		// BOUTON POUR ENVOYER VRAI OU FAUX
+		
+
+		// AFFICHER QUESTION + FORM REPONSE AU CLIC SUR INDICE
+		let btnQuiz = document.getElementById("hint-button")
+		btnQuiz.addEventListener("click", () => {
+			// const showQuestionAndForm = () => {
+			const question = quiz[randomQuestions].question
+			const questionContainer = document.getElementById("questions")
+
+			questionContainer.innerHTML = createQuestion(question)
+
+			let btnAnswer = document.getElementById("answer-button")
+			btnAnswer.addEventListener("click", () => {
+			let answer = document.getElementById("answer-form").value
+
+			let correctAnswer = quiz[randomQuestions].reponse
+			// console.log(correctAnswer)
+			answer == correctAnswer ? alert('bravo') : alert('dommage')
+		})
 	})
+
+const createQuestion = question => 
+	`<div> ${question} </div>
+	<input type="text" id="answer-form">
+	<input type="button" value="send" id="answer-button">`
 })
 
 
