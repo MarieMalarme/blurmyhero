@@ -1,0 +1,19 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.image {
+	width: 100vw;
+	text-align: center;
+}
+
+.images {
+	width: 100vw;
+	text-align: center;
+}
+
+img {
+	filter: blur(100px) hue-rotate(270deg);
+	width: 100vw;
+}
