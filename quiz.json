@@ -1,0 +1,53 @@
+[
+
+	{
+		"id" : 1,
+		"question" : "Dans la phrase en anglais - The quick brown fox jumps over the lazy dog - toutes les lettres de l'alphabet sont utilisées.",
+		"reponse" : "vrai"
+		
+	},
+	{
+		"id" : 2,
+		"question" : "Le cancanement, ou coin-coin, du canard ne fait pas d'écho.",
+		"reponse" : "vrai"
+		
+	},
+	{
+		"id" : 3,
+		"question" : "L'oeuf de l'autruche est plus gros que son cerveau.",
+		"reponse" : "vrai"
+		
+	},
+	{
+		"id" : 4,
+		"question" : "Seulement une personne sur 2 milliards vivra plus de 115 ans.",
+		"reponse" : "vrai"
+		
+	},
+	{
+		"id" : 5,
+		"question" : "Dix pour cent des revenus du gouvernement russe provient de la vente de vodka.",
+		"reponse" : "vrai"
+		
+	},
+	{
+		"id" : 6,
+		"question" : "Le briquet a été inventé avant l'alumette.",
+		"reponse" : "vrai"
+		
+	},
+	{
+		"id" : 7,
+		"question" : "La chanteuse Céline Dion est née dans la ville de Charlemagne au Québec.",
+		"reponse" : "vrai"
+		
+	},
+	{
+		"id" : 8,
+		"question" : "Le premier être vivant à aller dans l'Espace est la chienne Laïka, envoyée par les Américains.",
+		"reponse" : "faux"
+		
+	}
+]
+	
+
