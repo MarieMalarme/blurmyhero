@@ -5,17 +5,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans+Condensed:100,200,300,400" rel="stylesheet"> 
 
 </head>
 
 <body>
-	<div id="images"></div>
-	<div id="nameLetters"></div>
-	<div>
-	<input type="text" id="answer-form">
-	<input type="button" value="send" id="answer-button">
-	</div>
 
+	<div id="container">
+		
+		<div id="gif-block"></div>
+
+		<div id="nameLetters"></div>
+
+		<div id="name-guess">
+			<input type="text" id="name-form" class="fillForm" placeholder="Je suis un superhéros ! Remets les lettres de mon nom en ordre" autofocus>
+			<input type="button" value="Voilà ma réponse" class="btn" id="name-button">
+			<input type="button" value="File moi un indice biatch !" class="btn"  id="hint-button"></button>
+			<input type="button" value="J'en ai ras le cul, passe au suivant" class="btn"  id="skip-button"></button>
+		</div>
+
+		<div id="questions"></div>
+
+		<div id="images"></div>
+
+	</div>
 
 <script src="index.js" type="text/javascript"></script>
 

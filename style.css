@@ -3,17 +3,123 @@
 	padding: 0;
 }
 
-.image {
+#image {
 	width: 100vw;
 	text-align: center;
+	filter: blur(100px) /*hue-rotate(270deg)*/;
 }
 
-.images {
+#images {
 	width: 100vw;
 	text-align: center;
+	position: fixed;
+	z-index: -1;
 }
 
 img {
-	filter: blur(0px) hue-rotate(270deg);
 	width: 100vw;
+}
+
+.question {
+	font-size: 3rem;
+	font-family: 'IBM Plex Sans Condensed', sans-serif;
+	text-align: center;
+	font-weight: 300;
+	width: 75vw;
+	color: white;
+	margin-top: 70px;
+	letter-spacing: 1px;
+}
+
+#question {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.question-form {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+#container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+#name-guess {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.fillForm {
+	margin-top: 50px;
+	width: 60vw;
+	background-color: transparent;
+	border: none;
+	text-align: center;
+	border-bottom: solid 0.5px lightgrey;
+	font-size: 1.5rem;
+	font-family: 'IBM Plex Sans Condensed', sans-serif;
+	font-weight: 200;
+	padding-bottom: 5px;
+	margin-bottom: 15px;
+}
+
+::placeholder { 
+    color: white;
+    opacity: 0.5; 
+}
+
+input { 
+    color: white;
+}
+
+#nameLetters {
+	margin-top: 80px;
+	font-size: 3rem;
+	font-family: 'IBM Plex Mono', sans-serif;
+	text-align: center;
+	font-weight: 400;
+	color: white;
+}
+
+.btn {
+	width: 60vw;
+	margin-top: 15px;
+	height: 50px;
+	background-color: transparent;
+	border: solid 0.5px lightgrey;
+	color: white;
+	font-size: 0.75rem;
+	font-family: 'IBM Plex Mono', sans-serif;
+	text-align: center;
+	font-weight: 200;
+	cursor: pointer;
+	transition: 0.15s ease-out;
+}
+
+.btn:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+	transition: 0.15s ease-in;
+}
+
+#answer-button {
+	margin-bottom: 100px;
+}
+
+#gif-block {
+	z-index: 10;
+	top: 25vh;
+	position: fixed;
+	width: 75vh;
+	box-shadow: 0 0 50px rgba(0,0,0,0.5);
+	align-self: center;
 }
