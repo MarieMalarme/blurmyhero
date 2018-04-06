@@ -30,14 +30,12 @@ const gifWinAppear = () =>
 // FONCTION POUR INJECTER LE GIF DE BRAVO QUAND ON A TROUVE LE NOM
 const gifLoseAppear = () =>
 	`<div>
-		<img id="gif-block" src="hiijih.gif">
+		<img id="gif-block" src="http://68.media.tumblr.com/a305909943b503109047d174ccc194e3/tumblr_ottiuunDsm1vd5tz9o1_r1_500.gif">
 	</div>`
 	
 
 // FONCTION GLOBALE POUR LANCER LE JEU !!!!!!
 const game = () => {
-
-
 
 const gifBlock = document.getElementById("gif-block")
 gifBlock.innerHTML = ''
@@ -87,47 +85,51 @@ questionContainer.innerHTML = ''
 fetch('quiz.json')
 	.then(response => response.json())
 	.then(quiz => {
-
-
-		// REPONSE A LA QUESTION
-		const randomQuestions = getRandomId(0, quiz.length)
-		const answer = quiz[randomQuestions].reponse
-		// console.log(answer)
 	
-		
-
 		// AFFICHER QUESTION + FORM REPONSE AU CLIC SUR INDICE
 		let btnQuiz = document.getElementById("hint-button")
 		btnQuiz.addEventListener("click", () => {
+			console.log('gggg')
+			const randomQuestions = getRandomId(0, quiz.length)
 			const question = quiz[randomQuestions].question
-			questionContainer.innerHTML = createQuestion(question)
 
 
 			// BOUTON POUR REPONDRE À LA QUESTION
-			let btnAnswer = document.getElementById("answer-button")
-			btnAnswer.addEventListener("click", () => {
-			let answer = document.getElementById("answer-form").value
+			const answer = quiz[randomQuestions].reponse
+			const handleAnswer = () => {
+				let answer = document.getElementById("answer-form").value
 
-			// CHECKER SI LA RÉPONSE EST BONNE OU MAUVAISE
-			let correctAnswer = quiz[randomQuestions].reponse
-			
-			if (answer == correctAnswer) {
-				image.style.filter = 'blur(0px) hue-rotate(0deg)'
-				image.style.transition = '0.5s ease-in-out'
-				questionContainer.style.display = 'none'
-			} else { 
-				questionContainer.innerHTML = createQuestion(question)
+				// CHECKER SI LA RÉPONSE EST BONNE OU MAUVAISE
+				let correctAnswer = quiz[randomQuestions].reponse
+				
+				if (answer == correctAnswer) {
+					image.style.filter = 'blur(0px) hue-rotate(0deg)'
+					image.style.transition = '0.5s ease-in-out'
+					questionContainer.style.display = 'none'
+					// btnQuiz.style.display = 'none'
+				} else { 
+					const randomQuestions = getRandomId(0, quiz.length)
+					const question = quiz[randomQuestions].question
+					questionContainer.innerHTML = createQuestion(question)
+					document.getElementById("answer-button")
+					 	.addEventListener("click", handleAnswer)
+					 	document.getElementById("answer-form").focus()
+				}
 			}
-		})
-	})
 
-const createQuestion = question => 
-	`<div class="question"> ${question} </div>
-	<div class="question-form">
-		<input type="text" id="answer-form" class="fillForm" placeholder="Vrai ou faux ?">
-		<input type="button" value="Envoie ma réponse" id="answer-button" class="btn">
-	</div>`
-})
+			questionContainer.innerHTML = createQuestion(question)
+			document.getElementById("answer-button")
+				.addEventListener("click", handleAnswer)
+				document.getElementById("answer-form").focus()
+		})
+
+		const createQuestion = question => 
+			`<div class="question"> ${question} </div>
+			<div class="question-form">
+				<input type="text" id="answer-form" class="fillForm" placeholder="vrai ou faux ?">
+				<input type="button" value="Envoie ma réponse" id="answer-button" class="btn">
+			</div>`
+	})
 
 }
 

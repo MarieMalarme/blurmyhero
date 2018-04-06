@@ -47,7 +47,49 @@
 		"question" : "Le premier être vivant à aller dans l'Espace est la chienne Laïka, envoyée par les Américains.",
 		"reponse" : "faux"
 		
+	},
+	{
+		"id" : 9,
+		"question" : "La capitale de la Lituanie est Vilnius.",
+		"reponse" : "vrai"
+
+	},
+	{
+		"id" : 10,
+		"question" : "Le kiwi est le fruit national de la Nouvelle-Zélande.",
+		"reponse" : "faux"
+
+	},
+	{
+		"id" : 11,
+		"question" : "La capitale de la Côte d'Ivoire est Abidjan.",
+		"reponse" : "vrai"
+
+	},
+	{
+		"id" : 12,
+		"question" : "La capitale de la Pologne est Cracovie.",
+		"reponse" : "faux"
+
+	},
+	{
+		"id" : 13,
+		"question" : "La capitale du Vietnam est Hanoï.",
+		"reponse" : "vrai"
+
+	},
+	{
+		"id" : 14,
+		"question" : "Il pleut plus à Paris qu'à Londres.",
+		"reponse" : "vrai"
+
+	},
+	{
+		"id" : 15,
+		"question" : "Il est impossible d'ouvrir une porte d'avion de ligne en vol.",
+		"reponse" : "vrai"
 	}
+
 ]
 	
 
