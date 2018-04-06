@@ -21,12 +21,14 @@ img {
 }
 
 .question {
-	font-size: 5rem;
+	font-size: 3rem;
 	font-family: 'IBM Plex Sans Condensed', sans-serif;
 	text-align: center;
-	font-weight: 400;
+	font-weight: 300;
 	width: 75vw;
 	color: white;
+	margin-top: 70px;
+	letter-spacing: 1px;
 }
 
 #question {
@@ -57,7 +59,7 @@ img {
 	flex-wrap: wrap;
 }
 
-#name-form {
+.fillForm {
 	margin-top: 50px;
 	width: 60vw;
 	background-color: transparent;
@@ -69,6 +71,15 @@ img {
 	font-weight: 200;
 	padding-bottom: 5px;
 	margin-bottom: 15px;
+}
+
+::placeholder { 
+    color: white;
+    opacity: 0.5; 
+}
+
+input { 
+    color: white;
 }
 
 #nameLetters {
@@ -91,4 +102,19 @@ img {
 	font-family: 'IBM Plex Mono', sans-serif;
 	text-align: center;
 	font-weight: 200;
+	cursor: pointer;
+	transition: 0.15s ease-out;
+}
+
+.btn:hover {
+	background-color: rgba(255, 255, 255, 0.2);
+	transition: 0.15s ease-in;
+}
+
+#answer-button {
+	margin-bottom: 100px;
+}
+
+#answer-form {
+	
 }

@@ -88,8 +88,8 @@ fetch('quiz.json')
 const createQuestion = question => 
 	`<div class="question"> ${question} </div>
 	<div class="question-form">
-		<input type="text" id="answer-form">
-		<input type="button" value="send" id="answer-button">
+		<input type="text" id="answer-form" class="fillForm" placeholder="Vrai ou faux ?">
+		<input type="button" value="send" id="answer-button" class="btn">
 	</div>`
 })
 
