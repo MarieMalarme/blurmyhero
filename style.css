@@ -3,17 +3,56 @@
 	padding: 0;
 }
 
-.image {
+#image {
 	width: 100vw;
 	text-align: center;
+	filter: blur(100px) hue-rotate(270deg);
 }
 
-.images {
+#images {
 	width: 100vw;
 	text-align: center;
+	position: fixed;
+	z-index: -1;
 }
 
 img {
-	filter: blur(0px) hue-rotate(270deg);
 	width: 100vw;
+}
+
+.question {
+	font-size: 5rem;
+	font-family: 'IBM Plex Sans Condensed', sans-serif;
+	text-align: center;
+	font-weight: 400;
+	width: 75vw;
+}
+
+#question {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.question-form {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+#container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.name-form {
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	flex-wrap: wrap;
 }

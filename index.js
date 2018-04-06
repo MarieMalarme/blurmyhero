@@ -14,7 +14,7 @@ const mixLetters = (word)=>{
 }
 
 const createImage = image =>
-	`<div class="image">
+	`<div id="image">
 		<img src="${image}">
 	</div>`
 
@@ -77,14 +77,22 @@ fetch('quiz.json')
 
 			let correctAnswer = quiz[randomQuestions].reponse
 			// console.log(correctAnswer)
-			answer == correctAnswer ? alert('bravo') : alert('dommage')
+			const image = document.getElementById("image")
+			console.log(image)
+			if (answer == correctAnswer) {
+				image.style.filter = 'blur(0px)'
+			} else { 
+				alert('dommage') 
+			}
 		})
 	})
 
 const createQuestion = question => 
-	`<div> ${question} </div>
-	<input type="text" id="answer-form">
-	<input type="button" value="send" id="answer-button">`
+	`<div class="question"> ${question} </div>
+	<div class="question-form">
+		<input type="text" id="answer-form">
+		<input type="button" value="send" id="answer-button">
+	</div>`
 })
 
 
