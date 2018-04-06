@@ -78,7 +78,8 @@ fetch('quiz.json')
 			let correctAnswer = quiz[randomQuestions].reponse
 			const image = document.getElementById("image")
 			if (answer == correctAnswer) {
-				image.style.filter = 'blur(0px)'
+				image.style.filter = 'blur(0px) hue-rotate(0deg)'
+				image.style.transition = '0.5s ease-in-out'
 			} else { 
 				questionContainer.innerHTML = createQuestion(question)
 			}
@@ -89,7 +90,7 @@ const createQuestion = question =>
 	`<div class="question"> ${question} </div>
 	<div class="question-form">
 		<input type="text" id="answer-form" class="fillForm" placeholder="Vrai ou faux ?">
-		<input type="button" value="send" id="answer-button" class="btn">
+		<input type="button" value="Envoie ma réponse" id="answer-button" class="btn">
 	</div>`
 })
 
