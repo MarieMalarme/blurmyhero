@@ -59,30 +59,28 @@ fetch('quiz.json')
 		// RECUPERER UNE QUESTION RANDOM
 		
 
-		// BOUTON POUR ENVOYER VRAI OU FAUX
+		
 		
 
 		// AFFICHER QUESTION + FORM REPONSE AU CLIC SUR INDICE
 		let btnQuiz = document.getElementById("hint-button")
 		btnQuiz.addEventListener("click", () => {
-			// const showQuestionAndForm = () => {
 			const question = quiz[randomQuestions].question
 			const questionContainer = document.getElementById("questions")
-
 			questionContainer.innerHTML = createQuestion(question)
 
+			// BOUTON POUR REPONDRE À LA QUESTION
 			let btnAnswer = document.getElementById("answer-button")
 			btnAnswer.addEventListener("click", () => {
 			let answer = document.getElementById("answer-form").value
 
+			// CHECKER SI LA RÉPONSE EST BONNE OU MAUVAISE
 			let correctAnswer = quiz[randomQuestions].reponse
-			// console.log(correctAnswer)
 			const image = document.getElementById("image")
-			console.log(image)
 			if (answer == correctAnswer) {
 				image.style.filter = 'blur(0px)'
 			} else { 
-				alert('dommage') 
+				questionContainer.innerHTML = createQuestion(question)
 			}
 		})
 	})
