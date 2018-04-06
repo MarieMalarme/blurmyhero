@@ -6,7 +6,7 @@
 #image {
 	width: 100vw;
 	text-align: center;
-	filter: blur(100px) hue-rotate(270deg);
+	filter: blur(100px) /*hue-rotate(270deg)*/;
 }
 
 #images {
@@ -115,6 +115,11 @@ input {
 	margin-bottom: 100px;
 }
 
-#answer-form {
-	
+#gif-block {
+	z-index: 10;
+	top: 25vh;
+	position: fixed;
+	width: 75vh;
+	box-shadow: 0 0 50px rgba(0,0,0,0.5);
+	align-self: center;
 }

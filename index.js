@@ -20,9 +20,28 @@ const createImage = image =>
 
 const createMixedName = name =>
 	`<p> ${name} </p>`
+
+// FONCTION POUR INJECTER LE GIF DE BRAVO QUAND ON A TROUVE LE NOM
+const gifWinAppear = () =>
+	`<div>
+		<img id="gif-block" src="https://mm.aiircdn.com/20/5aabf482c65d6.gif">
+	</div>`
+
+// FONCTION POUR INJECTER LE GIF DE BRAVO QUAND ON A TROUVE LE NOM
+const gifLoseAppear = () =>
+	`<div>
+		<img id="gif-block" src="hiijih.gif">
+	</div>`
 	
 
+// FONCTION GLOBALE POUR LANCER LE JEU !!!!!!
+const game = () => {
 
+
+
+const gifBlock = document.getElementById("gif-block")
+gifBlock.innerHTML = ''
+document.getElementById("name-form").value = ''
 fetch(`https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json`)
 	.then(response => response.json())
 	.then(heroes => {
@@ -40,10 +59,30 @@ fetch(`https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/all.json`)
 		let answerName = document.getElementById("name-form").value
 		let correctAnswer = heroes[random].name
 		console.log(correctAnswer)
-		answerName == correctAnswer ? alert('bravo') : alert('dommage')
+		if (answerName == correctAnswer) {
+			gifBlock.innerHTML = gifWinAppear()
+			const image = document.getElementById("image")
+			setTimeout(() => gifBlock.innerHTML = '', 3000)
+			setTimeout(() => filterUnblur(image), 3000)
+			setTimeout(() => game(), 6000)
+
+
+			const filterUnblur = img => {
+				image.style.filter = 'blur(0px) hue-rotate(0deg)'
+				image.style.transition = '0.5s ease-in-out'
+			}
+
+
+		} else {
+			gifBlock.innerHTML = gifLoseAppear()
+			setTimeout(() => gifBlock.innerHTML = '', 3000)
+		}
+	
 	})
 })
 
+const questionContainer = document.getElementById("questions")
+questionContainer.innerHTML = ''
 
 fetch('quiz.json')
 	.then(response => response.json())
@@ -54,20 +93,15 @@ fetch('quiz.json')
 		const randomQuestions = getRandomId(0, quiz.length)
 		const answer = quiz[randomQuestions].reponse
 		// console.log(answer)
-
-
-		// RECUPERER UNE QUESTION RANDOM
-		
-
-		
+	
 		
 
 		// AFFICHER QUESTION + FORM REPONSE AU CLIC SUR INDICE
 		let btnQuiz = document.getElementById("hint-button")
 		btnQuiz.addEventListener("click", () => {
 			const question = quiz[randomQuestions].question
-			const questionContainer = document.getElementById("questions")
 			questionContainer.innerHTML = createQuestion(question)
+
 
 			// BOUTON POUR REPONDRE À LA QUESTION
 			let btnAnswer = document.getElementById("answer-button")
@@ -76,10 +110,11 @@ fetch('quiz.json')
 
 			// CHECKER SI LA RÉPONSE EST BONNE OU MAUVAISE
 			let correctAnswer = quiz[randomQuestions].reponse
-			const image = document.getElementById("image")
+			
 			if (answer == correctAnswer) {
 				image.style.filter = 'blur(0px) hue-rotate(0deg)'
 				image.style.transition = '0.5s ease-in-out'
+				questionContainer.style.display = 'none'
 			} else { 
 				questionContainer.innerHTML = createQuestion(question)
 			}
@@ -94,7 +129,14 @@ const createQuestion = question =>
 	</div>`
 })
 
+}
 
+game()
+
+const skipButton = document.getElementById("skip-button")
+skipButton.addEventListener("click", () => {
+	game()
+})
 
 
 
